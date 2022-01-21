@@ -11,16 +11,15 @@ class PeopleAPI extends RESTDataSource {
   async getPerson(name:string) {
     // Send a GET request to the specified endpoint
     const data = await this.get(`?search=${encodeURIComponent(name)}`);
-    console.log(data.results[0]);
     return data.results[0]
   }
 
-  async getPeople(limit = 10) {
-    const data = await this.get('', {
+  async getPeople(current_page=1,page_limit = 10) {
+    const data = await this.get(`?page=${current_page}`, {
       // Query parameters
-      per_page: limit,
+      per_page: page_limit,
+    }).catch(e=>{console.log("getPeople catch e: ", e);
     });
-    // console.log(data);
     
     return data;
   }
@@ -30,7 +29,6 @@ class PeopleAPI extends RESTDataSource {
       // Query parameters
       per_page: limit,
     });
-    console.log(data);
     
     return data;
   }

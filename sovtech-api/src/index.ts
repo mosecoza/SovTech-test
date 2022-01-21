@@ -36,8 +36,7 @@ type EventConnection {
 
 
   type Query {
-    results: Results
-
+    results(current_page: Int, page_limit: Int): Results
     person(person: String!) :  Person
 
   }
@@ -46,8 +45,10 @@ type EventConnection {
 
 const resolvers = {
   Query: {
-    results: async (_: any, {}: any, { dataSources }: any) => {
-      return dataSources.PeopleAPI.getPeople(10);
+    results: async (_: any, {current_page, page_limit}: any, { dataSources }: any) => {
+
+      
+      return dataSources.PeopleAPI.getPeople(current_page, page_limit);
     },
     person: async(_: any, { person = "Boba Fett" }: any, { dataSources }: any)=>{
       return dataSources.PeopleAPI.getPerson(person);

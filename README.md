@@ -17,7 +17,7 @@ cd sovtech-web && yarn && yarn start
 on port 3000
 
 
-To run the auth back-end
+To run the server
 
 ```
 cd sovtech-api && yarn && yarn start

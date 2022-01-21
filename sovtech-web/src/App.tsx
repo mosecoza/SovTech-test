@@ -1,12 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import "./index.scss";
-import People from "./People";
+import Navigation from "./pages/Navigation";
 
 
-const App = () => {
-return(<People/>)
-  };
+const App = () => (<Navigation/>);
+
 ReactDOM.render(<App />, document.getElementById("app"));
 
 
