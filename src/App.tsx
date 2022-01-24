@@ -4,7 +4,7 @@ import "./index.scss";
 import Navigation from "./pages/Navigation";
 
 
-const App = () => (<Navigation/>);
+const App = () => {return(<Navigation/>)};
 
 ReactDOM.render(<App />, document.getElementById("app"));
 
